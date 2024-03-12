@@ -1,9 +1,5 @@
-//const firstName = 'George'
-//firstName = 'Ivan'
-//console.log('hello ', firstName)
-
-let firstName = 'George'
-firstName ='Ivan'
-console.log('Hello', firstName)
-
-var lastName = ''
+let firstName = 'Vlad'
+let ageNum = "23"
+let cityName = "Kazan"
+let hobbieName ="Music"
+console.log('Hello', firstName, ageNum, cityName, hobbieName)
