@@ -1,13 +1,98 @@
-const titleProject = 'Название проекта';
-const screensValue = 'шаблонные, с уникальным дизайном, с анимациями';
-let screenPrice = 2500;
-let percentage = 50;
-let fullPrice = 1000;
-const responsive = true;
+// let x = 5;
 
-console.log (typeof titleProject)
-console.log (typeof screensValue)
-console.log (typeof screenPrice)
-console.log (typeof percentage)
-console.log (typeof fullPrice)
-console.log (typeof responsive)
+// if (x > 10) {
+//     console.log ('Условие верно');
+// } else {
+//     console.log('условие неверно')
+// }
+
+
+// let a = 5;
+// let b = '10';
+// let res = a + +b;
+
+// console.log (a.toString());
+
+
+// console.log (a+b);
+// console.log (res);
+//let responsive = true;
+
+
+//alert('Привет');
+
+
+
+
+
+
+
+
+
+// Весь функционал с прошлого урока оставляем!
+
+// 1) В prompt задаем вопрос “Название проекта?”. Результат ответа сохраняем в переменную titleProject
+// 2) Тоже самое делаем с типами экранов ("шаблонные, с уникальным дизайном, с анимациями") и результат сохраним в screensValue
+// 3) Спрашиваем нужен ли респонсивный сайт? Используем булевое значение и результат сохраняем в responsive
+// 4)
+// Сначала спросишь: "Какой сервис нужен?" и запишешь ответ в переменную, например, service1.
+// Затем поинтересуешься: "Сколько это будет стоить?" и ответ запишешь в другую переменную, например, servicePrice1.
+// После этого повторишь вопросы: "Какой еще сервис тебе нужен?" и ответ запишешь в новую переменную, например, service2.
+// Последний вопрос: "Сколько будет стоить этот второй сервис?" и ответ сохранишь в переменную servicePrice2. Таким образом, у тебя будут четыре переменные с ответами на вопросы о названиях и стоимости двух дополнительных услуг.
+// 5) Получаем общую стоимость проекта, включая: screenPrice + servicePrice1 + servicePrice2 = fullPrice
+// 6) Создать новую переменную servicePercentPrice. В ней мы будем хранить итоговую сумму за вычетом процента, который мы отдадим подрядчику/партнеру. Представьте, что вы делаете проект клиенту, который пришел от вашего партнера из другого агентства. Принято отдавать 10-15% от суммы. Итого: servicePercentPrice = fullPrice - процент отката подрядчику. Не забудьте округлить число, с помощью метода объекта Math. После выведите servicePercentPrice в консоль.
+// 7) С помощью if else создайте условия:
+// Если fullPrice больше 50000, тогда сделаем скидку в 10% (пока просто текст в консоль выводите)
+// Если fullPrice больше 20000 и меньше 50000, выводим в консоль текст: сделаем скидку 5%
+// Если fullPrice меньше 20000 и больше 0, то скидка не предусмотрена
+// Если отрицательное значение то вывести “Что то пошло не так”
+// Не забудьте учитывать варианты, если цена равна 0, 20000, 50000 (в консоль вывести любой текст по желанию)
+// 8) Добавляем папку с уроком 4 на гитхаб.
+
+// Формат сдачи: Прикладывем ссылку на гитхаб
+let titleProject = prompt ('Название проекта?');
+console.log('Название проекта – ', titleProject);
+let screensValue = prompt ('Какие типы экранов? Шаблонные, с уникальным дизайном, с анимациями');
+console.log('Нужно – ', screensValue);
+let responsive = prompt ('нужен ли респонсивный сайт?');
+console.log('Нужен респонс сайт? ', responsive);
+let service1 = prompt ('Какой сервис нужен?');
+console.log('Какой сервис нужен? ', service1);
+
+let servicePrice1 = prompt ('Сколько это будет стоить?');
+console.log('Этот сервис 1 будет стоить ', servicePrice1);
+
+let service2 = prompt ('Какой еще сервис тебе нужен?');
+console.log('Еще нужен сервис – ', service2);
+
+let screenPrice = 20000;//задаем фикс цену на типы экранов
+let partnersPercent = 15;//задаем фикс процент партнеру
+
+let servicePrice2 = prompt ('Сколько будет стоить этот второй сервис?');
+console.log('2 сервис будет стоить – ', servicePrice2);
+
+let fullPrice = (screenPrice + +servicePrice1 + +servicePrice2);
+let servicePercentPrice = fullPrice - (fullPrice*partnersPercent/100);
+servicePercentPrice = Math.round(servicePercentPrice);
+console.log('Цена с партнерским процентом', servicePercentPrice);
+if (fullPrice > 50000) { 
+console.log ('Вам положена скидка 10%');
+
+} else if (fullPrice > 20000 && fullPrice < 50000) {
+    console.log ('Вам положена скидка 5%');
+}
+else if (fullPrice > 0 && fullPrice < 20000) {
+    console.log ('Скидка не предусмотрена');
+}
+else if (fullPrice === 0) {
+    console.log("Просто текст");
+}
+else if (fullPrice === 20000) {
+    console.log("Просто текст");
+}
+else if (fullPrice === 50000) {
+    console.log("Просто текст");
+}
+else {
+    console.log("Что-то пошло не так");
+}
